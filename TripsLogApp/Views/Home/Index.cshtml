@@ -1,8 +1,31 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "My Trip Log";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<a>Add Trip</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Destination</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Accommodations</th>
+            <th scope="col">Things To Do</th> 
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (Trip trip in Model)
+    {
+        <tr>
+        @* look at the variable in the controller that holds the data! *@
+        @* look at the website and instructions for what to display to the views! *@
+            <td>@trip.Destination</td>
+            <td>@trip.StartDate</td>
+            <td>@trip.EndDate</td>
+            <td>@trip.Accomodation</td>
+            <td>@trip.Activity1</td>
+        </tr>
+    }
+
+    </tbody>
+</table>
