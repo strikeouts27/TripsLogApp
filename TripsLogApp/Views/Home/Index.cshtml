@@ -2,7 +2,7 @@
     ViewData["Title"] = "My Trip Log";
 }
 
-<a asp-area="Trip" asp-controller="Home" asp-action="Index">Add Trip</a>
+<a href="@Url.RouteUrl("trip_add", new { action = "Page1", area = "Trip" })" class="btn btn-primary">Add Trip</a>
 <table class="table">
     <thead>
         <tr>
@@ -20,10 +20,14 @@
         @* look at the variable in the controller that holds the data! *@
         @* look at the website and instructions for what to display to the views! *@
             <td>@trip.Destination</td>
-            <td>@trip.StartDate</td>
-            <td>@trip.EndDate</td>
+            <td>@trip.StartDate.ToShortDateString()</td>
+            <td>@trip.EndDate.ToShortDateString()</td>
             <td>@trip.Accomodation</td>
-            <td>@trip.Activity1</td>
+            <td>
+                <div>@trip.Activity1</div>
+                <div>@trip.Activity2</div>
+                <div>@trip.Activity3</div>
+            </td>
         </tr>
     }
 
