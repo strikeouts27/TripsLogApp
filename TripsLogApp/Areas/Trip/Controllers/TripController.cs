@@ -35,7 +35,6 @@ namespace TripsLogApp.Areas.Controllers
         }
 
         [HttpGet]
-        [ValidateAntiForgeryToken]
         public IActionResult Page1()
         {
 
@@ -58,7 +57,6 @@ namespace TripsLogApp.Areas.Controllers
         }
 
         [HttpGet]
-        [ValidateAntiForgeryToken]
         public IActionResult Page3(Trip trip)
         {
             if (trip == null)
