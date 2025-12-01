@@ -1,0 +1,30 @@
+@model Trip //Added reference to the Model
+@{
+    Layout = "~/Areas/Trip/Views/Shared/_TripLayout.cshtml";
+}
+<h3>Add Info for @(((Trip)TempData["Trip"]!).Accomodation)</h3>
+
+<div>
+    <form model="@Model" action="Page3">
+        @* Added forgery check for security, not really neccessary for this project, but it is best practice *@
+        @Html.AntiForgeryToken()
+
+        @* 
+            Hidden fields to hold the values form Page1 that are not being dislayed.
+            We will loose that data if we don't do this'
+        *@
+        <input asp-for="Destination" type="hidden" />
+        <input asp-for="Accomodation" type="hidden" />
+        <input asp-for="StartDate" type="hidden" />
+        <input asp-for="EndDate" type="hidden" />
+
+        <label for="phonenumber" class="form-label">Phone Number</label>
+        <input id="phonenumber" class="form-control" asp-for="AccomodationPhone" />
+
+        <label for="email" class="form-label">Email</label>
+        <input id="email" class="form-control" asp-for="AccomodationEmail" />
+
+        <input type="submit" class="btn btn-primary mt-4" value="Next" />
+        <input asp-action="Page1" type="button" class="btn btn-light mt-4" value="Cancel" />
+    </form>
+</div>
