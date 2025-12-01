@@ -3,3 +3,6 @@
 \obj
 \bin
 \Debug
+/TripsLogApp/obj/TripsLogApp.csproj.nuget.g.props
+/TripsLogApp/obj/project.assets.json
+/TripsLogApp/obj/project.nuget.cache
