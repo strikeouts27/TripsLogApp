@@ -1,5 +1,18 @@
 ﻿@{
     Layout = "~/Areas/Trip/Views/Shared/_TripLayout.cshtml";
 }
-<h1>Trip Home</h1>
+<h3>Add Trip Destination and Dates</h3>
+<div>
+    <form model="@Model">
+    <label class="form-label" for="destination">Destination</label>
+    <input id="destination" class="form-control"/>
+    <label class="form-label" for="accomodations">Accomodations</label>
+    <input id="accomodations" class="form-control"/>
+    <label class="form-label" for="startdate">Start Date</label>
+    <input id="startdate" class="form-control"/>
+    <label class="form-label" for="enddate">End Date</label>
+    <input for="enddate" class="form-control"/>
+    </form>
+</div>
+
 

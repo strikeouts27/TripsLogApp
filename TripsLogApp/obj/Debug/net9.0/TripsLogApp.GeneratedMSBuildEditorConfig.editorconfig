@@ -32,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJpcFxWaWV3c1xBZGRcUGFnZTMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Andrew/Programming_projects/DallasCollege/ASP_NET/TripsLogApp/TripsLogApp/Areas/Trip/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJpcFxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Andrew/Programming_projects/DallasCollege/ASP_NET/TripsLogApp/TripsLogApp/Areas/Trip/Views/Shared/_TripLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJpcFxWaWV3c1xTaGFyZWRcX1RyaXBMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
