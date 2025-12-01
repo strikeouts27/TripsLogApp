@@ -5,7 +5,7 @@ using TripsLogApp.Models;
 namespace TripsLogApp.Areas.Controllers
 {
     [Area("Trip")]
-    [Route("Trip/{Controller}/{action}/{id?}")]
+    [Route("Trip/Add/{Controller}/{action}/{id?}")]
     public class TripController: Controller
     {
         // logging keeps a record of what happens, boilerplate, audting and debugging records use this. 

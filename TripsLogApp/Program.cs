@@ -28,5 +28,5 @@ app.MapControllerRoute(
 app.MapAreaControllerRoute(
     name: "trip",
     areaName: "trip", 
-    pattern: "trip/{controller=Trip}/{action=Page1}/{id?}"); 
+    pattern: "trip/add/{controller=Trip}/{action=Index}/{id?}"); 
 app.Run();
