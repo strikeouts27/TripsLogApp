@@ -34,12 +34,16 @@ namespace TripsLogApp.Areas.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
+        [ValidateAntiForgeryToken]
         public IActionResult Page1()
         {
 
             return View(new Trip());
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Page2(Trip trip)
         {
 
@@ -54,6 +58,7 @@ namespace TripsLogApp.Areas.Controllers
         }
 
         [HttpGet]
+        [ValidateAntiForgeryToken]
         public IActionResult Page3(Trip trip)
         {
             if (trip == null)
