@@ -26,7 +26,9 @@ app.MapControllerRoute(
     .WithStaticAssets();
 
 app.MapAreaControllerRoute(
-    name: "trip",
-    areaName: "trip", 
-    pattern: "trip/add/{controller=Trip}/{action=Index}/{id?}"); 
+    name: "trip_add",
+    areaName: "Trip",
+    pattern: "trip/add/{action=Index}/{id?}",
+    defaults: new { controller = "Trip" });
+
 app.Run();
