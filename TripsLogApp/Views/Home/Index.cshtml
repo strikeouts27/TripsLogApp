@@ -2,7 +2,9 @@
     ViewData["Title"] = "My Trip Log";
 }
 
-<a asp-area="Trip" asp-controller="Home" asp-action="Index">Add Trip</a>
+<!--RouteUrl will help us build a url route instead of us using asp- tags. routeName is specified in program.cs --> 
+<!--route name issues with asp-helper tags caused a workaround  --> 
+<a href="@Url.RouteUrl("trip_add", new {action="Page1", area="Trip"})" class="btn btn-primary">Add Trip</a>
 <table class="table">
     <thead>
         <tr>

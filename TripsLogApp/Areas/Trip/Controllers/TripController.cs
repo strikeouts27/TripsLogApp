@@ -4,8 +4,9 @@ using TripsLogApp.Models;
 
 namespace TripsLogApp.Areas.Controllers
 {
+    // route tag threw everything off 
+    
     [Area("Trip")]
-    [Route("Trip/Add/{Controller}/{action}/{id?}")]
     public class TripController: Controller
     {
         // logging keeps a record of what happens, boilerplate, audting and debugging records use this. 

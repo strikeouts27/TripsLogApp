@@ -24,20 +24,20 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJpcFxWaWV3c1xBZGRcUGFnZTEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Andrew/Programming_projects/DallasCollege/ASP_NET/TripsLogApp/TripsLogApp/Areas/Trip/Views/Add/Page2.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJpcFxWaWV3c1xBZGRcUGFnZTIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Andrew/Programming_projects/DallasCollege/ASP_NET/TripsLogApp/TripsLogApp/Areas/Trip/Views/Add/Page3.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJpcFxWaWV3c1xBZGRcUGFnZTMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Andrew/Programming_projects/DallasCollege/ASP_NET/TripsLogApp/TripsLogApp/Areas/Trip/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJpcFxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Andrew/Programming_projects/DallasCollege/ASP_NET/TripsLogApp/TripsLogApp/Areas/Trip/Views/Shared/_TripLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJpcFxWaWV3c1xTaGFyZWRcX1RyaXBMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andrew/Programming_projects/DallasCollege/ASP_NET/TripsLogApp/TripsLogApp/Areas/Trip/Views/Trip/Page1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJpcFxWaWV3c1xUcmlwXFBhZ2UxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andrew/Programming_projects/DallasCollege/ASP_NET/TripsLogApp/TripsLogApp/Areas/Trip/Views/Trip/Page2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJpcFxWaWV3c1xUcmlwXFBhZ2UyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andrew/Programming_projects/DallasCollege/ASP_NET/TripsLogApp/TripsLogApp/Areas/Trip/Views/Trip/Page3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJpcFxWaWV3c1xUcmlwXFBhZ2UzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Andrew/Programming_projects/DallasCollege/ASP_NET/TripsLogApp/TripsLogApp/Areas/Trip/Views/_ViewImports.cshtml]
