@@ -1,8 +1,12 @@
 .git 
 .vs
 \obj
+\obj\*
 \bin
 \Debug
 /TripsLogApp/obj/TripsLogApp.csproj.nuget.g.props
 /TripsLogApp/obj/project.assets.json
 /TripsLogApp/obj/project.nuget.cache
+/TripsLogApp/obj/TripsLogApp.csproj.nuget.g.targets
+/TripsLogApp/obj/TripsLogApp.csproj.nuget.dgspec.json
+/TripsLogApp/obj/Debug/net9.0/TripsLogApp.RazorAssemblyInfo.cs
