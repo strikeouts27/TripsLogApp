@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using TripsLogApp.Controllers;
 using TripsLogApp.Models;
 
 namespace TripsLogApp.Areas.Controllers
@@ -11,6 +12,7 @@ namespace TripsLogApp.Areas.Controllers
     {
         // logging keeps a record of what happens, boilerplate, audting and debugging records use this. 
         private readonly ILogger<TripController> _logger;
+
 
         /* this is a constructor that creates the object 
         
@@ -27,17 +29,60 @@ namespace TripsLogApp.Areas.Controllers
         service.Add
         
         injection comes when you request the service. 
-        */ 
+        */
 
         public TripController(ILogger<TripController> logger)
         {
-            _logger = logger; 
+            _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Page1()
         {
-            return View();
+
+            return View(new Trip());
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Page2(Trip trip)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View(nameof(Page1), trip);
+            }
+
+            TempData["Trip"] = trip;
+
+            return View(trip);
+        }
+
+        [HttpGet]
+        public IActionResult Page3(Trip trip)
+        {
+            if (trip == null)
+            {
+                return RedirectToAction(nameof(Page1), trip);
+            }
+
+            TempData["Trip"] = trip;
+
+            return View(trip);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Add(Trip trip)
+        {
+            if (trip == null)
+            {
+                return RedirectToAction(nameof(Page1), trip);
+            }
+
+            TripRespository.AddTrip(trip);
+
+            return Redirect("~/");
+        }
     }
 }

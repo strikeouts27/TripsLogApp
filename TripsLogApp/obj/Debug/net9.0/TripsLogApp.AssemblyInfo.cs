@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TripsLogApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7a122da983d700b1450b871e305ff192f207a46")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+697b8d4166101a4fb8bc5cd2dd20894455ce2d9f")]
 [assembly: System.Reflection.AssemblyProductAttribute("TripsLogApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TripsLogApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

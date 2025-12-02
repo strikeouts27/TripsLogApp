@@ -1,4 +1,27 @@
+@model Trip //Added reference to the Model
 @{
     Layout = "~/Areas/Trip/Views/Shared/_TripLayout.cshtml";
 }
-<h1>Page 1</h1>
+<h3>Add Destination</h3>
+
+<div>
+    <form model="@Model" method="post" action="Page2">
+        @* Added forgery check for security, not really neccessary for this project, but it is best practice *@
+        @Html.AntiForgeryToken()
+
+        <label for="destination" class="form-label">Destinate</label>
+        <input id="destination" class="form-control" asp-for="Destination" />
+
+        <label for="accomodations" class="form-label">Accomodations</label>
+        <input id="accomodations" class="form-control" asp-for="Accomodation" />
+
+        <label for="startdate" class="form-label">Destinate</label>
+        <input id="startdate" type="date" class="form-control" asp-for="StartDate" />
+
+        <label for="enddate" class="form-label">Destinate</label>
+        <input id="enddate" type="date" class="form-control" asp-for="EndDate" />
+
+        <input type="submit" class="btn btn-primary mt-4" value="Next" />
+        <input asp-action="Page1" type="button" class="btn btn-light mt-4" value="Cancel" />
+    </form>
+</div>

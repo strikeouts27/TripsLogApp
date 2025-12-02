@@ -1,8 +1,47 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 using TripsLogApp.Models;
 
 namespace TripsLogApp.Controllers;
+
+public static class TripRespository
+{
+    static Dictionary<int,Trip> _trips = new Dictionary<int,Trip>();
+    static int _tripIndex = 1;
+    public static void AddTrip(Trip trip)
+    {
+        _trips.Add(_tripIndex++,trip);
+    }
+
+    public static Trip GetTrip(int id)
+    {
+        return _trips[id];
+    }
+
+    public static Trip? UpdateTrip(int id, Trip trip)
+    {
+        if (!_trips.ContainsKey(id))
+            return null;
+
+        _trips[id] = trip;
+
+        return _trips[id];  
+    }
+
+    public static bool DeleteTrip(int id)
+    {
+        if (!_trips.ContainsKey(id))
+            return false;
+
+        return _trips.Remove(id);
+    }
+
+    public static List<Trip> GetTrips()
+    {
+        return _trips.Select(p => p.Value).ToList();
+    }
+}
 
 public class HomeController : Controller
 {
@@ -16,7 +55,6 @@ public class HomeController : Controller
     ICollection is an interface that you can use to assign variables. 
     Try to use the correct data type for each assignment.  
     */
-    private List<Trip> _trips=new List<Trip>();
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
@@ -43,7 +81,7 @@ public class HomeController : Controller
         //     new Trip{TripId=1, Destination="Dallas", Accomodation="ExitSeat", StartDate=DateTime.Now, EndDate=DateTime.Now.AddDays(1), AccomodationPhone="404-404-4004", AccomodationEmail ="travler@icloud.com", Activity1="Go To The Rangers Game"},
         // };
         // connected to line 19
-        return View(_trips);
+        return View(TripRespository.GetTrips());
     }
 
     public IActionResult Privacy()
