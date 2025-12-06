@@ -2,6 +2,12 @@
 @{
     Layout = "~/Areas/Trip/Views/Shared/_TripLayout.cshtml";
 }
+
+<!--We captured Trip information on the first page and that is stored in TempData.  --> 
+<!--TempData stores all information as an object. We cast it out by using the (Trip) and than we use dot notation to get data.  --> 
+<!--Casting means converting data type to a different data type.  We need to convert it to that specific object.  --> 
+<!--The bang operator ! says I see the warning, stop me about it telling asp.net --> 
+
 <h3>Add Info for @(((Trip)TempData["Trip"]!).Accomodation)</h3>
 
 <div>
@@ -13,6 +19,7 @@
             Hidden fields to hold the values form Page1 that are not being dislayed.
             We will loose that data if we don't do this'
         *@
+        
         <input asp-for="Destination" type="hidden" />
         <input asp-for="Accomodation" type="hidden" />
         <input asp-for="StartDate" type="hidden" />

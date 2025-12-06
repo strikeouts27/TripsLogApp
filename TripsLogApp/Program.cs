@@ -1,4 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using TripsLogApp.Context;
+using TripsLogApp.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// should named contexts contexts 
+// this will tell super object db context object tripsdb about about the database connection. 
+builder.Services.AddDbContext<TripsDb>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+builder.Services.AddScoped<TripRespository>(); 
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

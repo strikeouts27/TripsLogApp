@@ -1,52 +1,19 @@
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
 using TripsLogApp.Models;
+using TripsLogApp.Repositories; 
 
 namespace TripsLogApp.Controllers;
-
-public static class TripRespository
-{
-    static Dictionary<int,Trip> _trips = new Dictionary<int,Trip>();
-    static int _tripIndex = 1;
-    public static void AddTrip(Trip trip)
-    {
-        _trips.Add(_tripIndex++,trip);
-    }
-
-    public static Trip GetTrip(int id)
-    {
-        return _trips[id];
-    }
-
-    public static Trip? UpdateTrip(int id, Trip trip)
-    {
-        if (!_trips.ContainsKey(id))
-            return null;
-
-        _trips[id] = trip;
-
-        return _trips[id];  
-    }
-
-    public static bool DeleteTrip(int id)
-    {
-        if (!_trips.ContainsKey(id))
-            return false;
-
-        return _trips.Remove(id);
-    }
-
-    public static List<Trip> GetTrips()
-    {
-        return _trips.Select(p => p.Value).ToList();
-    }
-}
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
+    // defined a local instance of trip respository. our database table data.  
+    // define a ghost repositories so you can do operations. 
+    private readonly TripRespository _repository; 
     /* this is a local temporary persistent storage 
     store a list using the trip model and when you do create a _trips=new 
     interfaces are abstract classes that list requirements for classes. 
@@ -55,9 +22,17 @@ public class HomeController : Controller
     ICollection is an interface that you can use to assign variables. 
     Try to use the correct data type for each assignment.  
     */
-    public HomeController(ILogger<HomeController> logger)
+
+    // dependency injection removes the responsability from the constructor to create dependencies. 
+    // dependency injection will provide what services the object needs. 
+    // whatever we are injecting via dependency injection 
+
+    // repositories are concerned how it gets its data, it doesn't need to know the logic 
+    public HomeController(ILogger<HomeController> logger, TripRespository respository)
     {
         _logger = logger;
+        // the repository is passed into this variable or attribute and becomes real upon instantiation. 
+        _repository = respository;
         // _trips = new List<Trip>()
         // {
         //     new Trip{TripId=1, Destination="Dallas", Accomodation="ExitSeat", StartDate=DateTime.Now, EndDate=DateTime.Now.AddDays(1), AccomodationPhone="404-404-4004", AccomodationEmail ="travler@icloud.com", Activity1="Go To The Rangers Game"},
@@ -66,7 +41,9 @@ public class HomeController : Controller
         // };
     }
 
-    public IActionResult Index()
+    
+
+    public async Task<IActionResult> Index()
     {
         // strongly typed List 
         // inferred on the razor sytnax 
@@ -81,7 +58,10 @@ public class HomeController : Controller
         //     new Trip{TripId=1, Destination="Dallas", Accomodation="ExitSeat", StartDate=DateTime.Now, EndDate=DateTime.Now.AddDays(1), AccomodationPhone="404-404-4004", AccomodationEmail ="travler@icloud.com", Activity1="Go To The Rangers Game"},
         // };
         // connected to line 19
-        return View(TripRespository.GetTrips());
+        // this will pull all trips out of the dictionary. 
+        // the _repository defined in the home controller is passed in. 
+        var trips = await _repository.GetTrips(); 
+        return View(trips);
     }
 
     public IActionResult Privacy()

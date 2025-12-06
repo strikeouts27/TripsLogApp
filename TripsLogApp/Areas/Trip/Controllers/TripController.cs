@@ -1,7 +1,10 @@
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using TripsLogApp.Controllers;
 using TripsLogApp.Models;
+using TripsLogApp.Repositories; 
 
 namespace TripsLogApp.Areas.Controllers
 {
@@ -13,6 +16,7 @@ namespace TripsLogApp.Areas.Controllers
         // logging keeps a record of what happens, boilerplate, audting and debugging records use this. 
         private readonly ILogger<TripController> _logger;
 
+        private readonly TripRespository _respository;
 
         /* this is a constructor that creates the object 
         
@@ -31,15 +35,16 @@ namespace TripsLogApp.Areas.Controllers
         injection comes when you request the service. 
         */
 
-        public TripController(ILogger<TripController> logger)
+        public TripController(ILogger<TripController> logger, TripRespository respository)
         {
             _logger = logger;
+            _respository = respository;
         }
 
         [HttpGet]
         public IActionResult Page1()
         {
-
+            // this will create a new trip object for the web page to use. 
             return View(new Trip());
         }
 
@@ -47,12 +52,12 @@ namespace TripsLogApp.Areas.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Page2(Trip trip)
         {
-
+            // if the user fails to input the correct data than show this page again and make them do it again. 
             if (!ModelState.IsValid)
             {
                 return View(nameof(Page1), trip);
             }
-
+            // TempData gets updated with the form information and than the view is returned with the trip data.  
             TempData["Trip"] = trip;
 
             return View(trip);
@@ -73,15 +78,18 @@ namespace TripsLogApp.Areas.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Add(Trip trip)
+        public async Task<IActionResult> Add(Trip trip)
         {
+        // We will check if the model saved is not null. 
             if (trip == null)
             {
                 return RedirectToAction(nameof(Page1), trip);
             }
-
-            TripRespository.AddTrip(trip);
-
+        
+        // when the trip information gets added via succesfful post request, it goes to the repoistory. 
+            await _respository.AddTrip(trip);
+            
+        // controller, return us to the home page! 
             return Redirect("~/");
         }
     }

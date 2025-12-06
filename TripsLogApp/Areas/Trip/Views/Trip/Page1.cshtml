@@ -1,24 +1,27 @@
-@model Trip //Added reference to the Model
+@model Trip //Added reference to the Model to activate intellisense for fields. 
 @{
     Layout = "~/Areas/Trip/Views/Shared/_TripLayout.cshtml";
 }
 <h3>Add Destination</h3>
 
 <div>
+    <!--The model becomes known by the view with the at model --> 
+    <!--action on the controller that we will be invoking to send the model to.  --> 
+    <!-- action attribute specfies whic action method on the controller will be used see Trip Controller --> 
     <form model="@Model" method="post" action="Page2">
         @* Added forgery check for security, not really neccessary for this project, but it is best practice *@
         @Html.AntiForgeryToken()
 
-        <label for="destination" class="form-label">Destinate</label>
+        <label for="destination" class="form-label">Destination</label>
         <input id="destination" class="form-control" asp-for="Destination" />
 
         <label for="accomodations" class="form-label">Accomodations</label>
         <input id="accomodations" class="form-control" asp-for="Accomodation" />
 
-        <label for="startdate" class="form-label">Destinate</label>
+        <label for="startdate" class="form-label">StartDate</label>
         <input id="startdate" type="date" class="form-control" asp-for="StartDate" />
 
-        <label for="enddate" class="form-label">Destinate</label>
+        <label for="enddate" class="form-label">EndDate</label>
         <input id="enddate" type="date" class="form-control" asp-for="EndDate" />
 
         <input type="submit" class="btn btn-primary mt-4" value="Next" />
