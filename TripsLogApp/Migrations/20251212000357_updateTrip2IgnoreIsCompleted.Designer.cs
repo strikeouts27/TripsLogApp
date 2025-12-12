@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TripsLogApp.Context;
 
@@ -11,9 +12,11 @@ using TripsLogApp.Context;
 namespace TripsLogApp.Migrations
 {
     [DbContext(typeof(TripsDb))]
-    partial class TripsDbModelSnapshot : ModelSnapshot
+    [Migration("20251212000357_updateTrip2IgnoreIsCompleted")]
+    partial class updateTrip2IgnoreIsCompleted
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

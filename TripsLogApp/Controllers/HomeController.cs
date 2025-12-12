@@ -45,6 +45,7 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
+        var test = TempData.ContainsKey("Destination"); 
         // strongly typed List 
         // inferred on the razor sytnax 
         // what we pass into this new object <> will specifiy what it can contian.

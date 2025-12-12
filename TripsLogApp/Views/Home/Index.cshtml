@@ -1,8 +1,11 @@
 ﻿@{
     ViewData["Title"] = "My Trip Log";
 }
-
-<a href="@Url.RouteUrl("trip_add", new { action = "Page1", area = "Trip" })" class="btn btn-primary">Add Trip</a>
+    @* @if(!string.IsNullOrEmpty((string?)TempData["Destination"]))
+        { *@
+            <h2>Trip to @(TempData["Destination"]) added.</h2>
+        @* } *@
+    <a href="@Url.RouteUrl("trip_add", new { action = "Page1", area = "Trip" })" class="btn btn-link text-decoration-none">Add Trip</a>
 <table class="table">
     <thead>
         <tr>
@@ -33,3 +36,4 @@
 
     </tbody>
 </table>
+

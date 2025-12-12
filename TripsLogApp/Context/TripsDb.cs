@@ -44,24 +44,29 @@ public class TripsDb : DbContext
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Trip>(entity =>
         {
-           entity.ToTable("Trips"); 
-           entity.HasKey(t => t.TripId); 
-           entity.Property(b => b.Destination)
+          entity.ToTable("Trips"); 
+          entity.HasKey(t => t.TripId); 
+          entity.Property(b => b.Destination)
                  .IsRequired()
                  .HasMaxLength(255);
 
             
-            entity.Property(b => b.Accomodation)
+          entity.Property(b => b.Accomodation)
                  .IsRequired()
                  .HasMaxLength(255);
 
-            entity.Property(b => b.StartDate)
+          entity.Property(b => b.StartDate)
                  .IsRequired()
                  .HasColumnType(nameof(DateTime));
             
-            entity.Property(b => b.EndDate)
+          entity.Property(b => b.EndDate)
                  .IsRequired()
                  .HasColumnType(nameof(DateTime));
+
+       //    entity.Ignore(b => b.IsCompleted);
+        
         });
+
+
     }
 }

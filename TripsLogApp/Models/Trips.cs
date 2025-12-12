@@ -18,4 +18,10 @@ public class Trip
     public string? Activity1 {get; set;}
     public string? Activity2 {get; set;}
     public string? Activity3 {get; set;}
+
+// if we have a property that is being used for somehting that the model does not need
+// use NotMapped. 
+    
+    // public bool IsCompleted {get; set;}
+    
 }

@@ -8,7 +8,7 @@
 <!--Casting means converting data type to a different data type.  We need to convert it to that specific object.  --> 
 <!--The bang operator ! says I see the warning, stop me about it telling asp.net --> 
 
-<h3>Add Info for @(((Trip)TempData["Trip"]!).Accomodation)</h3>
+<h3>Add Info for @(TempData["Accomodation"])</h3>
 
 <div>
     <form model="@Model" action="Page3">
@@ -31,7 +31,7 @@
         <label for="email" class="form-label">Email</label>
         <input id="email" class="form-control" asp-for="AccomodationEmail" />
 
-        <input type="submit" class="btn btn-primary mt-4" value="Next" />
-        <input asp-action="Page1" type="button" class="btn btn-light mt-4" value="Cancel" />
+        <input type="submit" class="btn btn-dark mt-4" value="Next" />
+        <input asp-action="Page1" type="button" class="btn btn-light mt-4 border-dark" value="Cancel" />
     </form>
 </div>

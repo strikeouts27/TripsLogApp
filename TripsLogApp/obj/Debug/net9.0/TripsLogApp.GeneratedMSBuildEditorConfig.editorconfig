@@ -20,13 +20,11 @@ build_property.RootNamespace = TripsLogApp
 build_property.ProjectDir = C:\Users\Andrew\Programming_projects\DallasCollege\ASP_NET\TripsLogApp\TripsLogApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
-build_property.RazorLangVersion = 9.0
+build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\Andrew\Programming_projects\DallasCollege\ASP_NET\TripsLogApp\TripsLogApp
 build_property._RazorSourceGeneratorDebug = 
-build_property.EffectiveAnalysisLevelStyle = 9.0
-build_property.EnableCodeStyleSeverity = 
 
 [C:/Users/Andrew/Programming_projects/DallasCollege/ASP_NET/TripsLogApp/TripsLogApp/Areas/Trip/Views/Shared/_TripLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHJpcFxWaWV3c1xTaGFyZWRcX1RyaXBMYXlvdXQuY3NodG1s

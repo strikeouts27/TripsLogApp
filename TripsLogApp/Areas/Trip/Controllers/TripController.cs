@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TripsLogApp.Controllers;
+using TripsLogApp.Migrations;
 using TripsLogApp.Models;
 using TripsLogApp.Repositories; 
 
@@ -45,7 +46,13 @@ namespace TripsLogApp.Areas.Controllers
         public IActionResult Page1()
         {
             // this will create a new trip object for the web page to use. 
-            return View(new Trip());
+            var trip = new Trip();
+            
+            // we need to handle incomplete entries. by default Trip model has a boolean called IsCompleted and 
+            // we basically assigned the incomplete information to trip and by telling it to add the incomplete informaton. 
+            // not concerned with update and delete functionality at this time. not a project requirement. 
+            return View(trip);
+
         }
 
         [HttpPost]
@@ -55,10 +62,11 @@ namespace TripsLogApp.Areas.Controllers
             // if the user fails to input the correct data than show this page again and make them do it again. 
             if (!ModelState.IsValid)
             {
+                TempData.Clear();
                 return View(nameof(Page1), trip);
             }
-            // TempData gets updated with the form information and than the view is returned with the trip data.  
-            TempData["Trip"] = trip;
+            // Pass trip directly to view - no TempData needed
+            TempData["Accomodations"] = trip.Accomodation;
 
             return View(trip);
         }
@@ -68,10 +76,12 @@ namespace TripsLogApp.Areas.Controllers
         {
             if (trip == null)
             {
-                return RedirectToAction(nameof(Page1), trip);
+                TempData.Clear();
+                return RedirectToAction(nameof(Page1));
             }
 
-            TempData["Trip"] = trip;
+            TempData["Destination"] = trip.Destination;
+
 
             return View(trip);
         }
@@ -83,11 +93,15 @@ namespace TripsLogApp.Areas.Controllers
         // We will check if the model saved is not null. 
             if (trip == null)
             {
-                return RedirectToAction(nameof(Page1), trip);
+                TempData.Clear(); 
+                return RedirectToAction(nameof(Page1));
             }
+            
+            
         
         // when the trip information gets added via succesfful post request, it goes to the repoistory. 
             await _respository.AddTrip(trip);
+            
             
         // controller, return us to the home page! 
             return Redirect("~/");
