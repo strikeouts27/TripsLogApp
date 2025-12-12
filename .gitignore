@@ -1,3 +1,7 @@
 .git 
+.vs
 \obj
 \bin
+TripsLogApp/obj/Debug/net9.0/TripsLogApp.AssemblyInfo.cs
+TripsLogApp/obj/Debug/net9.0/TripsLogApp.AssemblyInfoInputs.cache
+TripsLogApp/obj/Debug/net9.0/TripsLogApp.GeneratedMSBuildEditorConfig.editorconfig

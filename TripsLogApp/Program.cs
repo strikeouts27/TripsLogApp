@@ -1,4 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using TripsLogApp.Context;
+using TripsLogApp.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// should named contexts contexts 
+// this will tell super object db context object tripsdb about about the database connection. 
+builder.Services.AddDbContext<TripsDb>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+builder.Services.AddScoped<TripRespository>(); 
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -24,6 +36,19 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
+
+// making a customized url pattern 
+app.MapAreaControllerRoute(
+    name: "trip_add",
+    areaName: "Trip", 
+    // hard coded controller url 
+    // usually is pattern is the url that is specified for this section of code to run when the user enteres in a url like this. 
+    // we do not provide a default controller in this route. 
+    // we can make custom routes with hardcoding 
+    pattern: "trip/add/{action=Index}/{id?}",
+    // if no controller is specified in the pattern, use this controller specfied in ddefaults as the controller.  the trip controller to be used. 
+    defaults: new {controller="Trip"}
+    ); 
 
 
 app.Run();
